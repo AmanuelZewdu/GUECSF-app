@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">GUECSF app</string>
+    <string name="drawer_opened">Drawer Opened</string>
+    <string name="drawer_closed">Drawer Closed</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+
+    <string-array name="campus">
+    <item>Maraki</item>
+    <item>Tewodros</item>
+    <item>Fasil</item>
+</string-array>
+    <string-array name="Year">
+        <item>First year</item>
+        <item>Second year</item>
+        <item>Third year</item>
+        <item>Fourth year</item>
+        <item>Fifth year</item>
+        <item>Sixth year</item>
+    </string-array>
+    <string-array name="Team">
+        <item>Choire</item>
+        <item>Social Affair</item>
+        <item>Thumim</item>
+        <item>VLM</item>
+        <item>Missiom mobilizers</item>
+        <item>Pray</item>
+        <item>Councling and Guidance</item>
+        <item>Natanim</item>
+        <item>Accadamic Support</item>
+        <item>Folow up</item>
+    </string-array>
+</resources>
