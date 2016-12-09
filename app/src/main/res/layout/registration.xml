@@ -19,8 +19,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Firt Name"
-                android:textColorHint="#FF1EB7EF"
+                android:hint="First Name"
+                android:textColorHint="#FF102F3B"
                 android:id="@+id/First_name"
                 />
             <EditText
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Last Name"
                 android:layout_marginTop="10dp"
-                android:textColorHint="#FF1EB7EF"
+                android:textColorHint="#FF102F3B"
                 android:id="@+id/Last_name"
                 />
             <LinearLayout
@@ -43,7 +43,7 @@
                     android:layout_marginTop="22dp"
 
                     android:text="sex:-"
-                    android:textColor="#FF1EB7EF"
+                    android:textColor="#FF102F3B"
 
                     android:textSize="17sp" />
 
@@ -85,7 +85,7 @@
                     android:layout_marginTop="15dp"
 
                     android:text="Campus"
-                    android:textColor="#FF1EB7EF"
+                    android:textColor="#FF102F3B"
                     android:textSize="17sp" />
 
                 <Spinner
@@ -96,7 +96,8 @@
                     android:background="@android:drawable/btn_dropdown"
                     android:gravity="center"
                     android:layout_marginLeft="55dp"
-                    android:spinnerMode="dropdown">
+                    android:spinnerMode="dropdown"
+                    >
 
                 </Spinner>
 
@@ -114,7 +115,7 @@
                 android:layout_marginTop="15dp"
 
                 android:text="Year of study"
-                android:textColor="#FF1EB7EF"
+                android:textColor="#FF102F3B"
                 android:textSize="17sp" />
 
             <Spinner
@@ -136,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Field_of_study"
                 android:hint="Field of Study"
-                android:textColorHint="#FF1EB7EF"
+                android:textColorHint="#FF102F3B"
                 android:layout_marginTop="10dp"/>
 
             <LinearLayout
@@ -151,7 +152,7 @@
                     android:layout_marginTop="15dp"
 
                     android:text="Ministering team"
-                    android:textColor="#FF1EB7EF"
+                    android:textColor="#FF102F3B"
                     android:textSize="17sp" />
 
                 <Spinner
