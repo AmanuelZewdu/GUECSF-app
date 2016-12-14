@@ -3,7 +3,14 @@ package com.amanuel.guecsftrial;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -26,13 +34,16 @@ public class Registration extends Fragment implements AdapterView.OnItemSelected
     EditText fname,lname,department;
     private String m;
     Spinner  campus,year,team;
-    Button submit;
+    Button submit,browse;
     RadioButton male,female;
     View view;
     String Year,Campus,Team;
    // Context context;
     Activity activity;
     RadioGroup Radio_Group;
+    private static final int SELECTED_PICTURE=1;
+    ImageView im;
+
 
 
     public void onItemSelected(AdapterView<?> parent, View view,
@@ -65,10 +76,12 @@ public class Registration extends Fragment implements AdapterView.OnItemSelected
         year=(Spinner)view.findViewById(R.id.spinner_Year);
         team=(Spinner)view.findViewById(R.id.spinner_Ministering);
         submit=(Button)view.findViewById(R.id.button);
+        browse=(Button) view.findViewById(R.id.Browse);
         male=(RadioButton)view.findViewById(R.id.Male);
         female=(RadioButton)view.findViewById(R.id.Female);
         Radio_Group=(RadioGroup)view.findViewById(R.id.Radio_group);
-activity=getActivity();
+        im=(ImageView)view.findViewById(R.id.account_pic);
+        activity=getActivity();
 
 
 
@@ -122,9 +135,82 @@ activity=getActivity();
 
         });
 
-        return view;
 
+        browse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent i= new Intent (Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i,SELECTED_PICTURE);
+
+            }
+        });
+        return view;
+       }
+   /* public void btnClick(View v){
+
+        switch (v.)
+        Intent i= new Intent (Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(i,SELECTED_PICTURE);
+
+        }*/
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+
+            case SELECTED_PICTURE:
+                if (resultCode== getActivity().RESULT_OK){
+                    Uri uri =data.getData();
+                    String[]projection={MediaStore.Images.Media.DATA};
+
+                    Cursor cursor=getActivity().getContentResolver().query(uri,projection,null,null,null);
+                    cursor.moveToFirst();
+                    int columnIndex=cursor.getColumnIndex(projection[0]);
+                    String filePath=cursor.getString(columnIndex);
+                    cursor.close();
+
+                    Bitmap yourSelectedImage= BitmapFactory.decodeFile(filePath);
+                    Drawable d= new BitmapDrawable(yourSelectedImage);
+                    im.setBackground(d);
+                }
+                break;
+
+
+
+        }
     }
+/*  @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+
+            case SELECTED_PICTURE:
+                if (resultCode==RESULT_OK){
+                    Uri uri =data.getData();
+                    String[]projection={MediaStore.Images.Media.DATA};
+
+                    Cursor cursor=getContentResolver().query(uri,projection,null,null,null);
+                    cursor.moveToFirst();
+                    int columnIndex=cursor.getColumnIndex(projection[0]);
+                    String filePath=cursor.getString(columnIndex);
+                    cursor.close();
+
+                    Bitmap yourSelectedImage= BitmapFactory.decodeFile(filePath);
+                    Drawable d= new BitmapDrawable(yourSelectedImage);
+                    im.setBackground(d);
+                }
+                break;
+
+
+
+        }
+
+    }*/
 
 
 

@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:id="@+id/profile_box"
-            android:background="@color/header"
+            android:background="#3271A7"
             >
              <ImageView
                  android:layout_width="60dp"
