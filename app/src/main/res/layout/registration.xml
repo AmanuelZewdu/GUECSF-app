@@ -188,7 +188,7 @@
                     android:layout_height="200dp"
                     android:id="@+id/account_pic"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/aman"
+                    android:background="@drawable/profile"
                     />
                 <Button
                     android:layout_width="wrap_content"
